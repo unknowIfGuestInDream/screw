@@ -41,7 +41,11 @@ public enum EngineFileType implements Serializable {
                                                     /**
                                                      * MD
                                                      */
-                                                    MD(".md", "documentation_md", "Markdown文件");
+                                                    MD(".md", "documentation_md", "Markdown文件"),
+                                                    /**
+                                                     *  EXCEL
+                                                     */
+                                                    XLS(".xls", "documentation_xls", "Excel文件");
 
     /**
      * 文件后缀

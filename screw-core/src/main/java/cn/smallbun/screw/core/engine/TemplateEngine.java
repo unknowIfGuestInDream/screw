@@ -38,4 +38,12 @@ public interface TemplateEngine extends Serializable {
      */
     void produce(DataModel info, String docName) throws ProduceException;
 
+    /**
+     * 文档流
+     *
+     * @param info    {@link DataModel}
+     * @param docName {@link String}
+     */
+    String produceFile(DataModel info, String docName) throws ProduceException;
+
 }

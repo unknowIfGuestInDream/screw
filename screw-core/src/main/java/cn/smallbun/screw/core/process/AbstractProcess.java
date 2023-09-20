@@ -234,5 +234,18 @@ public abstract class AbstractProcess implements Process {
                 columns.forEach(BeanUtils::beanAttributeValueReplaceBlank);
             });
         }
+        //excel
+        if (config.getEngineConfig().getFileType().equals(EngineFileType.XLS)) {
+            //escape xml
+            beanAttributeValueReplaceBlank(dataModel);
+            //columns
+            tables.forEach(i -> {
+                //table escape xml
+                beanAttributeValueReplaceBlank(i);
+                List<ColumnModel> columns = i.getColumns();
+                //columns escape xml
+                columns.forEach(BeanUtils::beanAttributeValueReplaceBlank);
+            });
+        }
     }
 }

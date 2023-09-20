@@ -73,4 +73,17 @@ public class DocumentationExecute extends AbstractExecute {
             throw ExceptionUtils.mpe(e);
         }
     }
+
+    public String executeFile() throws BuilderException {
+        try {
+            long start = System.currentTimeMillis();
+            //处理数据
+            DataModel dataModel = new DataModelProcess(config).process();
+            //产生文档
+            TemplateEngine produce = new EngineFactory(config.getEngineConfig()).newInstance();
+            return produce.produceFile(dataModel, getDocName(dataModel.getDatabase()));
+        } catch (Exception e) {
+            throw ExceptionUtils.mpe(e);
+        }
+    }
 }

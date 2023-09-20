@@ -121,4 +121,32 @@ public class FreemarkerTemplateEngine extends AbstractTemplateEngine {
             throw ExceptionUtils.mpe(e);
         }
     }
+
+    @Override
+    public String produceFile(DataModel info, String docName) throws ProduceException {
+        Assert.notNull(info, "DataModel can not be empty!");
+        String path = getEngineConfig().getCustomTemplate();
+        StringWriter stringWriter = new StringWriter();
+        try {
+            Template template;
+            // freemarker template
+            // 如果自定义路径不为空文件也存在
+            if (StringUtils.isNotBlank(path) && isFileExists(path)) {
+                // 文件名称
+                String fileName = new File(path).getName();
+                template = configuration.getTemplate(fileName);
+            }
+            //获取系统默认的模板
+            else {
+                template = configuration
+                    .getTemplate(getEngineConfig().getFileType().getTemplateNamePrefix()
+                                 + freemarker.getSuffix());
+            }
+            // create file
+            template.process(info, stringWriter);
+        } catch (IOException | TemplateException e) {
+            throw ExceptionUtils.mpe(e);
+        }
+        return stringWriter.toString();
+    }
 }

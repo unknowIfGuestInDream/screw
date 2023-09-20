@@ -123,4 +123,9 @@ public class VelocityTemplateEngine extends AbstractTemplateEngine {
             throw ExceptionUtils.mpe(e);
         }
     }
+
+    @Override
+    public String produceFile(DataModel info, String docName) throws ProduceException {
+        return null;
+    }
 }
