@@ -422,7 +422,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <configFile>./codestyle/Formatter.xml</configFile>
+                    <configFile>${pom.basedir}/../codestyle/Formatter.xml</configFile>
                     <encoding>${project.encoding}</encoding>
                     <excludes>
                         <exclude>/resources/template/**</exclude>
