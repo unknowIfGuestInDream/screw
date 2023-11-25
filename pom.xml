@@ -55,7 +55,7 @@
         <commons-logging.version>1.2</commons-logging.version>
         <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
         <HikariCP.version>3.4.5</HikariCP.version>
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.20</lombok.version>
         <freemarker.version>2.3.30</freemarker.version>
         <velocity.version>1.7</velocity.version>
         <velocity-tools.version>2.0</velocity-tools.version>
